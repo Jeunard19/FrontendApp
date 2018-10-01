@@ -4,6 +4,7 @@ import { AuthService } from '../../service/auth.service';
 import { RegisterComponent } from '../register/register.component';
 import { ProductService } from '../../service/product.service';
 import { Product } from '../../model/product';
+import { ProductId } from '../../model/product-id';
 
 @Component({
   selector: 'app-user',
@@ -23,6 +24,7 @@ export class UserComponent implements OnInit {
   product:Product
   product2:Product
   Term:String
+  userproduct:ProductId[]
 
   constructor(private _service:AuthService,private _service2:ProductService) {}
 
@@ -30,6 +32,7 @@ export class UserComponent implements OnInit {
     this._service.checkCredentials();
     this.getFoo()
     this._service.checkCredentials();
+
 
   }
   getFoo(){
@@ -60,9 +63,21 @@ export class UserComponent implements OnInit {
   getproduct(id:number){
     var deDiv = document.getElementById("mercure");
     deDiv.innerHTML = '<tr> <th>PRODUCT</th> <th>CATERGORY</th> <th>PRICE</th>  <th>WINST</th> </tr>';
-    for(var i=0;i<200;i++){
+    this.userproduct=JSON.parse(localStorage.getItem('user2'|| "[]"))
+    if(localStorage.getItem('user2'|| "[]")===null){
+      this._service2.getResource("http://localhost:9090/users/"+id+"/product/1").subscribe(
+        data2 => {
+          this.product=data2;
+        //  this.createtables(this.product);
+        var jojo =  '<tr> <th>'+this.product.productName+'</th> <th>'+this.product.productCategory+'</th> <th>'+this.product.pricePaid+'</th><th>'+this.product.winstMargin+'</th> </tr>';
+        deDiv.innerHTML = deDiv.innerHTML + jojo;
+        
+        })
+
+    } else{
+      for(var i=0;i<this.userproduct.length;i++){
     
-        this._service2.getResource("http://localhost:9090/users/"+id+"/product/"+i).subscribe(
+        this._service2.getResource("http://localhost:9090/users/"+id+"/product/"+this.userproduct[i].id).subscribe(
       data2 => {
         this.product=data2;
       //  this.createtables(this.product);
@@ -73,7 +88,9 @@ export class UserComponent implements OnInit {
       
       
      
-    }}
+    }
+    }
+   }
 
     onSubmit(){
       this._service2.postproduct(this.Term).subscribe(data=>{

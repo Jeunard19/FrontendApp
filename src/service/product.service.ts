@@ -71,6 +71,7 @@ export class ProductService {
       //dto.product=JSON.parse(localStorage.getItem('user'|| "[]"))
       dto.product=JSON.parse(localStorage.getItem('user2'|| "[]"))
       //alert(dto.product[1].id)
+      
      
       return this.http.post<UserDTO>("http://localhost:9090/update",dto);
     }
