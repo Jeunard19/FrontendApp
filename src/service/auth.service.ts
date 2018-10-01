@@ -60,4 +60,5 @@ export class AuthService {
     Cookie.delete('access_token');
     this._router.navigate(['/login']);
   }
+
 }

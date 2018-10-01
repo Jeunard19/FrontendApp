@@ -1,13 +1,17 @@
+<form>
+  <fieldset>
+  
 <div class="col-sm-6">
-  <h1>Login</h1>
+  <legend>Login</legend>
   
   <div class="col-sm-12 form-group">
+     
        <label>Username</label>
-       <input class="form-control" type="text" [(ngModel)]="loginData.username" />
+       <input class="form-control" type="text" [(ngModel)]="loginData.username" name ="us" required/>
   </div>
   <div class="col-sm-12 form-group">
       <label>Password</label>
-      <input class="form-control" type="password"  [(ngModel)]="loginData.password"/>
+      <input class="form-control" type="password"  [(ngModel)]="loginData.password"name="pas" required/>
   </div>
   <div class="col-sm-12">
       <button class="btn btn-primary pull-right" (click)="login()" type="submit">Login</button>
@@ -15,3 +19,7 @@
   </div>
 
 </div>
+
+
+</fieldset>
+</form>

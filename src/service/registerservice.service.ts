@@ -14,13 +14,14 @@ export class RegisterserviceService {
 
   constructor(private http: HttpClient ) { }
   register(name:String,username:String,email:String,password:String): Observable<UserDTO> {
-    var dto = new UserDTO(1,name);
+    var dto = new UserDTO();
     dto.name=name
     dto.username=username
     dto.email=email
     dto.password=password
+    dto.role='ROLE_USER'
     
-   return this.http.post<UserDTO>('http://localhost:9091/api/register',dto)
+   return this.http.post<UserDTO>('http://localhost:9090/signup',dto)
   
   }
 }

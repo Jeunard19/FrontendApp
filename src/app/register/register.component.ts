@@ -26,18 +26,21 @@ logForm: FormGroup;
     });
   }
   model: any = {};
- Swit:boolean = true
+public static userid:number
   dato: UserDTO
   ngOnInit() {
    
   }
 
 onSubmit() {
-  this.service.register(this.model.firstName, this.model.lastName,this.model.email,this.model.password) .subscribe(data=>alert(this.model.firstName))
+  this.service.register(this.model.name, this.model.username,this.model.email,this.model.password) .subscribe(data=>{
+    RegisterComponent.userid =data.id
+    alert(this.model.username)})
   //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
+ 
   //AppComponent.API_ENDPOINT=true
-  this.Swit=false
-  this.router.navigateByUrl('/Login');
+ 
+  this.router.navigateByUrl('/login');
 }
 
 }

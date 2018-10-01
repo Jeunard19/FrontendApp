@@ -1,12 +1,33 @@
 <div class="container">
-  <h1 class="col-sm-12">Details</h1>
+  <h1 class="col-sm-12">Info</h1>
   <div class="col-sm-12">
-      <label class="col-sm-3">ID</label> <span>{{foo.id}}</span>
+      <label class="col-sm-3">Username:</label> <span>{{this.username}}</span>
   </div>
-  <div class="col-sm-12">
-      <label class="col-sm-3">Name</label> <span>{{foo.password}}</span>
-  </div>
-  <div class="col-sm-12">
-      <button class="btn btn-primary" (click)="getFoo()" type="submit">New Foo</button>        
-  </div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/><form>
+    <fieldset>
+        <div class="col-sm-12 form-group">
+            <legend>Search product</legend>
+            <input class="form-control" type="text" [(ngModel)]="Term" name="user" required/>
+          </div>
+          <div class="col-sm-12">
+              <button class="btn btn-primary pull-right" (click)="onSubmit()" type="submit">Search</button>
+      </div>
+    
+    </fieldset>
+    </form>
+    <br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+  <h3 class="col-sm-12">Products</h3>
+  <table id="mercure" class= "table"></table>
+
+
 </div>
