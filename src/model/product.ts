@@ -4,7 +4,7 @@ export class Product {
     
     productCategory:String; 
 	
-	pricePaid:String; 
+	pricePaid:number; 
     
-    winstMargin:String;
+    winstMargin:number;
 }

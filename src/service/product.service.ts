@@ -22,9 +22,11 @@ export class ProductService {
     return this.http.get<Product>(resourceUrl);
   }
 
-  postproduct(name:String) : Observable<Product>{
+  postproduct(name:String, price:number, winstmargin: number) : Observable<Product>{
     var product= new Product
     product.productName=name
+    product.pricePaid = price 
+    product.winstMargin = winstmargin 
     return this.http.post<Product>("http://localhost:9090/api/product/",product);
   }
   updateUser(productmid:number,name:String,password:String,id:number,username:String) : Observable<UserDTO>{

@@ -23,6 +23,8 @@ export class UserComponent implements OnInit {
   product:Product
   product2:Product
   Term:String
+  pricePaid:number;
+  winstMargin:number; 
 
   constructor(private _service:AuthService,private _service2:ProductService) {}
 
@@ -42,6 +44,7 @@ export class UserComponent implements OnInit {
                     this.username=this.foo.principal.username
                     this.passwoord=this.foo.principal.password
                     this.getproduct(this.userid)
+                  
 
                   
                    }
@@ -76,7 +79,7 @@ export class UserComponent implements OnInit {
     }}
 
     onSubmit(){
-      this._service2.postproduct(this.Term).subscribe(data=>{
+      this._service2.postproduct(this.Term, this.pricePaid, this.winstMargin).subscribe(data=>{
         this.product2=data,
         this._service2.updateUser(this.product2.id,this.name,this.passwoord,this.userid,this.username).subscribe()
         window.location.reload()

@@ -12,6 +12,8 @@ import { AuthService } from '../service/auth.service';
 import { RegisterComponent } from './register/register.component';
 import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 import { ProductComponent } from './product/product.component';
+import { AppRoutingModule } from './app-routing.module';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { ProductComponent } from './product/product.component';
     HomeComponent,
     RegisterComponent,
     ConfirmEmailComponent,
-    ProductComponent
+    ProductComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { ProductComponent } from './product/product.component';
     RouterModule.forRoot([
      { path: '', component: HomeComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent }])
+    { path: 'register', component: RegisterComponent }]),
+    AppRoutingModule
   ],
   providers: [AuthService,FormBuilder],
   bootstrap: [AppComponent]
