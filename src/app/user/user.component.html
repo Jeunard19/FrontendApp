@@ -10,12 +10,33 @@
 <br/>
 <br/><form>
     <fieldset>
-        <div class="col-sm-12 form-group">
-            <legend>Search product</legend>
+        
+      
+      <div class="col-sm-12 form-group">
+            <legend>Add product</legend>
             <input class="form-control" type="text" [(ngModel)]="Term" name="user" required/>
           </div>
-          <div class="col-sm-12">
-              <button class="btn btn-primary pull-right" (click)="onSubmit()" type="submit">Search</button>
+          <div class="col-sm-12">     
+            
+          
+                          
+
+      <div class="col-sm-12 form-group">
+            <legend>Insert price paid</legend>
+            <input class="form-control" type="text" [(ngModel)]="pricePaid" name="price" required/>
+           </div>
+           <div class="col-sm-12 form-group">
+
+
+            <legend>Insert profit margin wanted</legend>
+            <input class="form-control" type="text" [(ngModel)]="winstMargin" name="winstmargin" required/>
+          </div>                        
+
+    
+                       
+          <button class="btn btn-primary pull-right" (click)="onSubmit()" type="submit">Search</button>
+                         
+                     
       </div>
     
     </fieldset>
