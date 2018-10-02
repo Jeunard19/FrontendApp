@@ -74,20 +74,21 @@ export class UserComponent implements OnInit {
       data2 => {
         this.product=data2;
       //  this.createtables(this.product);
-      var jojo =  '<tr id = '+this.product.productName+this.product.margin+'> <th>'+this.product.productName+'</th> <th>'+this.product.productCategory+'</th> <th>'+this.product.pricePaid+'</th><th>'+this.product.pricesOnline+'</th> <th>'+this.product.margin+'</th> </tr>';
+      var jojo =  '<tr id = '+this.product.productName.replace(/ /g, "")+this.product.margin+'> <th>'+this.product.productName+'</th> <th>'+this.product.productCategory+'</th> <th>'+this.product.pricePaid+'</th><th>'+this.product.pricesOnline+'</th> <th>'+this.product.margin+'</th> </tr>';
       deDiv.innerHTML = deDiv.innerHTML + jojo;
 
       if (this.product.margin>this.product.winstMargin) {
-        document.getElementById(""+this.product.productName+this.product.margin).style.backgroundColor = '#00FF00';
+       
+        document.getElementById(""+this.product.productName.replace(/ /g, "")+this.product.margin).style.backgroundColor = '#00FF00';
       }
 
        else if (this.product.margin<1)
-      {
-        document.getElementById(""+this.product.productName+this.product.margin).style.backgroundColor =  '#DC143C';
+      { 
+        document.getElementById(""+this.product.productName.replace(/ /g, "")+this.product.margin).style.backgroundColor =  '#DC143C';
       }  
       else if (this.product.margin<this.product.winstMargin)
       {
-        document.getElementById(""+this.product.productName+this.product.margin).style.backgroundColor = '#FFFFFF';
+        document.getElementById(""+this.product.productName.replace(/ /g, "")+this.product.margin).style.backgroundColor = '#FFFFFF';
       }  
      
      
