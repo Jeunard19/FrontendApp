@@ -4,7 +4,11 @@ export class Product {
     
     productCategory:String; 
 	
-	pricePaid:number; 
+    pricePaid:number; 
     
+    pricesOnline:number; 
+    
+    margin:number;
+
     winstMargin:number;
 }

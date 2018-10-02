@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 import { UserDTO } from '../model/user-dto';
 import { Observable } from 'rxjs';
 import 'rxjs/Rx';
+import { ProductUser } from '../model/product-user';
 
 @Injectable()
 export class AuthService {
@@ -49,6 +50,16 @@ export class AuthService {
                    .map((res:Response) => res.json())
                    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
+
+  getResourceprod(resourceUrl) : Observable<ProductUser>{
+    var headers = new Headers({'Content-type': 'application/x-www-form-urlencoded; charset=utf-8', 'Authorization': 'Bearer '+Cookie.get('access_token')});
+    
+    var options = new RequestOptions({ headers: headers });
+    return this._http.get(resourceUrl, options)
+                   .map((res:Response) => res.json())
+                   .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
 
   checkCredentials(){
     if (!Cookie.check('access_token')){
