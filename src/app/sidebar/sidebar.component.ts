@@ -29,7 +29,7 @@ export class SidebarComponent implements OnInit {
 }
 
   showInfo() {
-    alert("test"); 
+   
       this.service.getResource(this.userUrl)
        .subscribe(
                    data => {
