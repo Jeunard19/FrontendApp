@@ -44,6 +44,13 @@ export class SidebarComponent implements OnInit {
                   alert(this.arrayFromStroage)
                 
   }
+
+  showProfile() {
+
+    
+
+
+  }
   
 }
 
