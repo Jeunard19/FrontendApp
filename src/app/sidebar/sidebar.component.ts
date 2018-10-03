@@ -17,8 +17,8 @@ export class SidebarComponent implements OnInit {
   private userUrl = 'http://localhost:9090/user/'; 
   username:String
 
- public arrayFromStroage = JSON.parse(localStorage.getItem("user2"));
- public arrayLength = this.arrayFromStroage.length;
+ //public arrayFromStroage = JSON.parse(localStorage.getItem("user2"));
+// public arrayLength = this.arrayFromStroage.length;
   
 
   ngOnInit() {
@@ -29,7 +29,7 @@ export class SidebarComponent implements OnInit {
 }
 
   showInfo() {
-   
+   // alert("test"); 
       this.service.getResource(this.userUrl)
        .subscribe(
                    data => {
@@ -39,9 +39,9 @@ export class SidebarComponent implements OnInit {
                   }
                    
                   );
-
-                  alert("Username: " + this.user.principal.username)
-                  alert(this.arrayFromStroage)
+                  
+                  alert("Username: " + this.user.principal.username+"\n"+"Name: "+this.user.principal.name)
+                  //alert(this.arrayFromStroage)
                 
   }
   
