@@ -14,6 +14,7 @@ import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 import { ProductComponent } from './product/product.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ProfilepageComponent } from './profilepage/profilepage.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     RegisterComponent,
     ConfirmEmailComponent,
     ProductComponent,
-    SidebarComponent
+    SidebarComponent,
+    ProfilepageComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     RouterModule.forRoot([
      { path: '', component: HomeComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent }]),
+    { path: 'register', component: RegisterComponent },
+  { path: 'userinfo', component: ProfilepageComponent }]),
     AppRoutingModule
   ],
   providers: [AuthService,FormBuilder],

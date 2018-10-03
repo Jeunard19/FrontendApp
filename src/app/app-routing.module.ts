@@ -4,12 +4,15 @@ import { Routes, RouterModule } from '@angular/router';
 import {LoginComponent } from './login/login.component';
 import { ProductComponent } from './product/product.component';
 import {HomeComponent} from './home/home.component';
+import { ProfilepageComponent } from './profilepage/profilepage.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: HomeComponent
-  },
+    path: 'home',
+    component: UserComponent,
+      },
+      {path: 'userinfo', component: ProfilepageComponent}
 ];
 
 @NgModule({
